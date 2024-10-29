@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/style/variables.scss';
+
+body {
+  margin: 0;
+  font-family: 'Open Sauce One', sans-serif;
+  color: black;
+  font-size: 16px;
+
+  background-color: $color-secondary;
+  box-sizing: border-box;
+}

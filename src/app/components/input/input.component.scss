@@ -1,0 +1,30 @@
+@import '../../../assets/style/variables.scss';
+
+.form-group {
+    position: relative;
+    margin: 24px;
+
+
+    .form-input-label {
+        top: -0.4rem;
+        position: absolute;
+
+        font-size: 0.875rem;
+
+        margin-left: 0.625rem;
+
+        background-color: $color-secondary;
+
+        padding: 0 4px;
+        padding-right: 8px;
+    }
+
+    .form-input {
+        border: 1px solid #757575;
+        border-radius: 4px;
+        background-color: $color-secondary;
+        padding: 18px 0 15px 11px;
+
+        width: 278px;
+    }
+}

@@ -1,0 +1,20 @@
+<div class="event-countdown">
+<app-header [content]="eventTitle"></app-header>
+<h2 appFullWidthText>{{ countdown }}</h2>
+<form [formGroup]="eventForm" class="event-form">
+  <app-input
+    [type]="'text'"
+    [placeholder]="'Event Title'"
+    [label]="'Title'"
+    [control]="titleControl"
+  />
+  <app-input [type]="'date'" [label]="'Date'" [control]="startDateControl" (change)="onSubmit()" />
+  <!-- <div *ngIf="showError" class="error-messages">
+        <small *ngIf="control.errors?.['required']">This field is required.</small>
+        <small *ngIf="control.errors?.['notInFuture']">Date must be in the future.</small>
+        <small *ngIf="control.errors?.['minlength']">
+            Minimum length is {{ control.errors?.['minlength'].requiredLength }} characters.
+        </small>
+    </div> -->
+</form>
+</div>
