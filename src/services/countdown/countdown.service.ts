@@ -1,16 +1,32 @@
 import { Injectable } from '@angular/core'
-import { Observable, interval } from 'rxjs'
+import { BehaviorSubject, Observable, Subscription, interval } from 'rxjs'
 import { map, takeWhile } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountdownService {
-  startCountdown(targetDate: Date): Observable<string> {
-    return interval(1000).pipe(
-      map(() => this.calculateTimeLeft(targetDate)),
-      takeWhile(time => time !== '0 days, 0h, 0m, 0s'),
-    )
+  private countdownSubscription: Subscription | null = null
+  private countdown$ = new BehaviorSubject<string>('')
+  startCountdown(targetDate: Date): void {
+    this.clearCountdown()
+    this.countdownSubscription = interval(1000)
+      .pipe(
+        map(() => this.calculateTimeLeft(targetDate)),
+        takeWhile(time => time !== '0 days, 0h, 0m, 0s'),
+      )
+      .subscribe(time => this.countdown$.next(time))
+  }
+
+  getCountdown(): Observable<string> {
+    return this.countdown$.asObservable()
+  }
+
+  clearCountdown(): void {
+    if (this.countdownSubscription) {
+      this.countdownSubscription.unsubscribe()
+      this.countdownSubscription = null
+    }
   }
 
   private calculateTimeLeft(targetDate: Date): string {

@@ -1,0 +1,34 @@
+<form [formGroup]="eventForm" class="event-form">
+  <div>
+    <app-input
+      [type]="'text'"
+      [placeholder]="'Event Title'"
+      [label]="'Title'"
+      [control]="titleControl"
+    />
+    @if (titleControl && titleControl.invalid && titleControl.touched) {
+      <div class="error">
+        <small *ngIf="titleControl.errors?.['required']">Title is required.</small>
+        <small *ngIf="titleControl.errors?.['minlength']"
+          >Title must be at least 1 character.</small
+        >
+        <small *ngIf="titleControl.errors?.['maxlength']">Title cannot exceed 25 characters.</small>
+      </div>
+    }
+  </div>
+  <div>
+    <app-input
+      [type]="'date'"
+      [label]="'Date'"
+      [control]="startDateControl"
+      (change)="onSubmit()"
+      [testId]="'dateControl'"
+    />
+    @if (startDateControl.invalid && startDateControl.touched) {
+      <div class="error">
+        <small *ngIf="startDateControl.errors?.['required']">Date is required.</small>
+        <small *ngIf="startDateControl.errors?.['notInFuture']">Date must be in the future.</small>
+      </div>
+    }
+  </div>
+</form>

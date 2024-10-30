@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-subheader',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core'
   templateUrl: './subheader.component.html',
   styleUrl: './subheader.component.scss',
 })
-export class SubheaderComponent {}
+export class SubheaderComponent {
+  @Input() content!: string
+}

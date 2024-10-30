@@ -1,8 +1,8 @@
-@import "../../../assets/style/variables.scss";
+@import '../../assets/style/variables.scss';
 
 .app-header {
   color: $color-primary;
   white-space: nowrap;
   line-height: 1;
-  margin: 0;
+  margin: 0 24px;
 }

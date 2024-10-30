@@ -13,9 +13,6 @@ export class InputComponent {
   @Input() label!: string
   @Input() placeholder!: string
   @Input() type: string = 'text'
+  @Input() testId: string = ''
   @Input() control = new FormControl()
-
-  //   get showError(): boolean {
-  //     return this.control.invalid && this.control.touched;
-  //   }
 }

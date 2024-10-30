@@ -1,0 +1,9 @@
+<div class="event-countdown">
+  <app-header appFullWidthText [content]="headerContent"></app-header>
+  <app-subheader data-testid="countdown" appFullWidthText [content]="countdown"></app-subheader>
+  <app-event-form
+    (formSubmit)="onFormSubmit($event)"
+    [initialTitle]="eventTitle"
+    [initialStartDate]="eventDate"
+  ></app-event-form>
+</div>
