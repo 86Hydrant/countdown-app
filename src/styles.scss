@@ -10,3 +10,9 @@ body {
   background-color: $color-secondary;
   box-sizing: border-box;
 }
+html,
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  box-sizing: border-box;
+}

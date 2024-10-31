@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, AfterViewInit } from '@angular/cor
   standalone: true,
 })
 export class FullWidthTextDirective implements AfterViewInit {
-  private maxFontSize = 200
+  private maxFontSize = 100
   private minFontSize = 10
   private observer: MutationObserver
 
@@ -28,6 +28,11 @@ export class FullWidthTextDirective implements AfterViewInit {
 
   @HostListener('window:resize')
   onResize(): void {
+    this.resizeTextToFullWidth()
+  }
+
+  @HostListener('window:orientationchange')
+  onOrientationChange(): void {
     this.resizeTextToFullWidth()
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, HostListener } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { EventCountdownComponent } from '../components/event-countdown/event-countdown.component'
