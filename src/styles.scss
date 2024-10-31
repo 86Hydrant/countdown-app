@@ -10,6 +10,8 @@ body {
   background-color: $color-secondary;
   box-sizing: border-box;
 }
+
+/* These styles fix an issue where the layout would break on orientation change on mobile chrome browsers */
 html,
 body {
   overflow-x: hidden;

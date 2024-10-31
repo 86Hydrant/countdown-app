@@ -65,6 +65,6 @@ export class EventCountdownComponent {
   }
 
   ngOnDestroy(): void {
-    this.countdownSubscription.unsubscribe()
+    this.countdownService.clearCountdown()
   }
 }
